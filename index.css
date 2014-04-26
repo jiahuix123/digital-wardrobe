@@ -1,0 +1,30 @@
+body {
+	margin-top: 180px;
+	background-image:url('homepage-wallpaper.png');
+}
+
+fieldset {
+	length: 150px;
+	float: left;
+	margin-top: 100px;
+}
+
+.column {
+	margin-left: 30%;
+}
+
+legend {
+	font-size: 16pt;
+}
+
+.columnname, input {
+	margin-left: 40px;
+}
+
+header {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	text-align: center;
+}

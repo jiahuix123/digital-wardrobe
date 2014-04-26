@@ -1,0 +1,24 @@
+.friend {
+	float:left;
+  	margin-left:50px;
+  	margin-right:50px;
+  	text-align:center;
+}
+
+h1 {
+	text-align: center;
+}
+
+li {
+	display: inline;
+	padding: 15px;
+}
+
+#allPhotos {
+	overflow: hidden;
+	margin:30px auto;
+}
+
+body {
+	color: white;
+}
