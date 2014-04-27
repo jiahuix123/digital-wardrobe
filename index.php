@@ -6,29 +6,6 @@
 		header("Location: main.html");
 		die();
 	}
-
-	// connect to db
-	$connection = mysqli_connect(
-		"localhost", 
-		"root", "root", 
-		"maindb", 8889) or die("Error connecting to DB: " . mysqli_error($connection));
-
-	// store user's data into sql table
-	// table's name is user
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$firstname = mysqli_real_escape_string(
-			$connection, $_POST['firstname']);
-		$lastname = mysqli_real_escape_string(
-			$connection, $_POST['lastname']);
-		$email = mysqli_real_escape_string(
-			$connection, $_POST['email']);
-		$password = mysqli_real_escape_string(
-			$connection, $_POST['password']);
-		// store all those data into one table call users
-		$query = "INSERT INTO user(first_name, last_name, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')" or
-			die("Error: " . mysqli_error($connection));
-		$result = $connection->query($query);
-	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +19,7 @@
 			</div>
 		</header>
 		<div id="signup" class="column">
-			<form action="" method="POST">
+			<form action="signupredirect.php" method="POST">
 				<fieldset>
 					<legend>Don't have an account yet?</legend>
 					<div class="columnname">First Name:</div>
@@ -56,13 +33,13 @@
 					<div class="columnname">Password:</div>
 						<input type="password" name="password" size="25" /> </br>
 					<input type="submit" value="Sign me up!" />
-				</fieldset>
-				<?php
+					<?php
 					if (isset($_SESSION["AccountExist"])) {
-						echo $_SESSION["AccountExist"];
+						echo "Email address has been used!";
 						unset($_SESSION["AccountExist"]);
 					}
-				?>
+					?>
+				</fieldset>
 			</form>
 			<form id="loginform" action="loginredirect.php" method="post">				
 				<fieldset>
@@ -72,19 +49,18 @@
 					<div>
 						<input id="email" name="email" type="text" size="25"  autofocus="sutofocus">
 					</div>
-
-						<div class="columnname">Password:</div>
-							<input type="password" name="password" size="25" /> </br>
-						<input type="submit" value="Sign me up!" />
-					</fieldset>
+					<div class="columnname">Password:</div>
+					<input type="password" name="password" size="25" /> </br>
+					<input type="submit" value="Sign me up!" />
 					<?php
-						if (isset($_SESSION["AccountExist"])) {
-							echo $_SESSION["AccountExist"];
-							unset($_SESSION["AccountExist"]);
+						if (isset($_SESSION["LoginFailed"])) {
+							echo "Login failed!";
+							unset($_SESSION["LoginFailed"]);
 						}
 					?>
-				</form>
-			</div>
-
+				</fieldset>
+					
+			</form>
+		</div>
 	</body>
 </html>

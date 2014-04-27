@@ -1,12 +1,13 @@
 <?php
-session_start();
-$email = $_POST["email"];
-$password = $_POST["password"];
-// validate email address 
-if (!preg_match("^[\S]+@[\S]+\.[\S]+$^", $email)) {
-	print "Error, invalid email address";
+	session_start();
+if (isset($_POST["email"]) && isset($_POST["password"])) {
+	$email = $_POST["email"];
+	$password = $_POST["password"];
+} else {
+	$_SESSION["LoginFailed"] = true;
+	header("Location: index.php");
+	exit();
 }
-
 
 // connect to db
 $connection = mysqli_connect(
@@ -14,22 +15,17 @@ $connection = mysqli_connect(
 		"root", "root", 
 		"maindb", 8889) or die("Error connecting to DB: " . mysqli_error($connection));
 
-$query = "SELECT * FROM user WHERE email='$email'" or
-	die("Error: " . mysqli_error($connection));
+$query = "SELECT userID, email FROM user WHERE email = '$email' AND password = '$password' LIMIT 1"; 
 $result = $connection->query($query);
-$numrows = mysql_num_rows($query);
+$user = $result->fetch_assoc();
 
-if ($numrows != 0) {
-	while ($row = mysql_fetch_assoc($query)) {		
-		if ($row['email']==$email && $row['password']==$password) {
-		} else {
-			die("incorrect username/password!");
-		}
-	}
-} else {
-	$_SESSION["noAccount"] = "Account does not exist, sign up please!";	
-	//User does not exist!
+if (empty($result) || empty($user)) {
+	$_SESSION["LoginFailed"] = true;
 	header("Location: index.php");
-	die();	
+	exit();
+} else {
+	unset($_SESSION["LoginFailed"]);
+	header("Location: main.html");
+	exit();
 }
 ?>
