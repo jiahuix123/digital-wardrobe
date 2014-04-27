@@ -108,6 +108,9 @@ ul.sdt_menu li > a{
 	height:85px;
 	z-index:12;
 	background:transparent url(../images/overlay.png) no-repeat bottom right;
+	-moz-box-shadow:0px 0px 2px #000 inset;
+	-webkit-box-shadow:0px 0px 2px #000 inset;
+	box-shadow:0px 0px 2px #000 inset;
 }
 ul.sdt_menu li a img{
 	border:none;
@@ -117,6 +120,9 @@ ul.sdt_menu li a img{
 	bottom:0px;
 	left:85px;
 	z-index:100;
+	-moz-box-shadow:0px 0px 4px #000;
+	-webkit-box-shadow:0px 0px 4px #000;
+	box-shadow:0px 0px 4px #000;
 }
 ul.sdt_menu li span.sdt_wrap{
 	position: absolute;
@@ -127,28 +133,28 @@ ul.sdt_menu li span.sdt_wrap{
 	z-index: 15;
 }
 ul.sdt_menu li span.sdt_active{
-	position: absolute;
-	top: 85px;
-	width: 180px;
-	height: 0px;
-	left: 0px;
-	z-index: 14;
-	-moz-box-shadow: 0px 0px 4px #000 inset;
-	-webkit-box-shadow: inset 0px 0px 4px;
-	box-shadow: inset 0px 0px 4px;
+	position:absolute;
+	background:#111;
+	top:85px;
+	width:180px;
+	height:0px;
+	left:0px;
+	z-index:14;
+	-moz-box-shadow:0px 0px 4px #000 inset;
+	-webkit-box-shadow:0px 0px 4px #000 inset;
+	box-shadow:0px 0px 4px #000 inset;
 }
 ul.sdt_menu li span span.sdt_link,
 ul.sdt_menu li span span.sdt_descr,
 ul.sdt_menu li div.sdt_box a{
-	margin-left: 15px;
-	text-transform: uppercase;
-	text-shadow: 1px 1px 1px black;
+	margin-left:15px;
+	text-transform:uppercase;
+	text-shadow:1px 1px 1px #000;
 }
 ul.sdt_menu li span span.sdt_link{
 	color:#fff;
 	font-size:24px;
 	float:left;
-
 	clear:both;
 }
 ul.sdt_menu li span span.sdt_descr{
@@ -168,12 +174,13 @@ ul.sdt_menu li div.sdt_box{
 	top:85px;
 	left:0px;
 	display:none;
-	color: white;
+	background: black;
 }
 ul.sdt_menu li div.sdt_box a{
 	float:left;
 	clear:both;
 	line-height:30px;
+	color:#0B75AF;
 }
 ul.sdt_menu li div.sdt_box a:first-child{
 	margin-top:15px;
@@ -202,7 +209,9 @@ button ------------
 	 position: relative;
 
 	 /* BACKGROUND GRADIENTS */
-	 background: -webkit-gradient(linear, left top, left bottom; 
+	 background: #014464;
+	 background: -moz-linear-gradient(top, #0D658E, #0C577A 50%, #014D71 51%, #003E5C);
+	 background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0E658E), color-stop(.5, #0C577A), color-stop(.5, #014D71), to(#003E5C)); 
 
 
 	 /* BORDER RADIUS */
@@ -210,6 +219,8 @@ button ------------
 	 -webkit-border-radius: 10px;
 	 border-radius: 10px;
 
+	 border: 1px solid #368DBE;
+	 border-top: 1px solid #c3d6df;
 
 
 	 /* TEXT SHADOW */
@@ -224,6 +235,9 @@ button ------------
 	
 	/* WHILE HOVERED */
 	.button:hover {
+		background: #014464;
+	 	background: -moz-linear-gradient(top, #0c5f85, #0b5273 50%, #024869 51%, #003853);
+	 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0c5f85), color-stop(.5, #0b5273), color-stop(.51, #024869), to(#003853));
 	}
 	
 	/* WHILE BEING CLICKED */
@@ -235,10 +249,12 @@ button ------------
 	.button:before {
 		font-family: EfonRegular;
 		content: 'My Wardrobe';
+		color: #09232F;
 		font-size: 50px;
 		float: left;
 		margin-left: 35px;
 		margin-right: -10px;
+		text-shadow: 0 1px 0 #4190AF;
 	}
 
 	#tmrmatch {
