@@ -7,12 +7,14 @@
 		die();
 	}
 
-	// store user's data into sql table
-	// table's name is user
+	// connect to db
 	$connection = mysqli_connect(
 		"localhost", 
 		"root", "root", 
 		"maindb", 8889) or die("Error connecting to DB: " . mysqli_error($connection));
+
+	// store user's data into sql table
+	// table's name is user
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$firstname = mysqli_real_escape_string(
 			$connection, $_POST['firstname']);
@@ -23,7 +25,7 @@
 		$password = mysqli_real_escape_string(
 			$connection, $_POST['password']);
 		// store all those data into one table call users
-		$query = "INSERT INTO user VALUES ('$firstname', '$lastname', '$email', '$password')" or
+		$query = "INSERT INTO user(first_name, last_name, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')" or
 			die("Error: " . mysqli_error($connection));
 		$result = $connection->query($query);
 	}
@@ -65,7 +67,6 @@
 			</form>
 		<!--</div>-->
 
-		<!--<div id = "login" class="column">-->
 			<form id="loginform" action="loginredirect.php" method="post">
 				
 				<fieldset>
