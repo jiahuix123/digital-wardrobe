@@ -7,10 +7,6 @@ if (!preg_match("^[\S]+@[\S]+\.[\S]+$^", $email)) {
 	print "Error, invalid email address";
 }
 
-// validate user name
-if (!preg_match("^[a-zA-Z0-9_-]{3,20}$^", users)) {
-	print "Error, invalid user name";
-}
 
 // connect to db
 $connection = mysqli_connect(
@@ -26,7 +22,6 @@ $numrows = mysql_num_rows($result);
 if ($numrows != 0) {
 	while ($row = mysql_fetch_assoc($result)) {		
 		if ($row['email']==$email && $row['password']==$password) {
-			header("Location: main.html");
 		} else {
 			die("incorrect username/password!");
 		}
@@ -37,5 +32,4 @@ if ($numrows != 0) {
 	header("Location: index.php");
 	die();	
 }
-
 ?>
