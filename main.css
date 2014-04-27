@@ -25,7 +25,6 @@ html, body {
 	margin-right: auto;
 	overflow: hidden;
 	margin-top: 20px;
-	background-color: #FFFFFF;
 }
 .column {
 	float:left;
@@ -34,8 +33,24 @@ html, body {
 	width:550px;
 }
 #right {
-	width:550px;
+	height:550px;
+	width: 400px;
+	height: 550px;
+	border: 5px solid black;
+	margin-top: 50px;
+	background-color: white;
+	overflow: hidden;
 	
+}
+#right p{
+	text-align: center;
+	font-family: "Myriad Pro", "Trebuchet MS", sans-serif;
+	font-weight: bold;
+	font-size: 20pt;
+	background-color: white;
+}
+#right img{
+	margin-top: 0px;
 }
 .row {
 	float:left;
@@ -236,11 +251,5 @@ button ------------
 	margin-top: 50px;
 	margin-right: auto;
 	margin-bottom: auto;
-	border-style: solid;
-	border-color:black;
-	border-width: 5px;
-	padding: 20px;
-	
-	
-	
+	border: 5px solid black;
 	}
