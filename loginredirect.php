@@ -21,12 +21,12 @@ foreach ($users as $line) {
 		if (strcasecmp($password, $pw_) == 0) {
 			//Log in successfully!
 			$_SESSION["email"] = $_POST["email"];
-			header("Location: http://students.washington.edu/jx5/main.html");
+			header("Location: main.html");
 			die();
 		} else {
 			$_SESSION["pw_incorrect"] = "Wrong password!";
 			//password incorrect
-			header("Location: http://students.washington.edu/jx5/index.php");
+			header("Location: index.php");
 			die();
 		}
 	} 
@@ -35,7 +35,7 @@ foreach ($users as $line) {
 if (!$findName) {
 	$_SESSION["noAccount"] = "Account does not exist, sign up please!";	
 //User does not exist!
-	header("Location: http://students.washington.edu/jx5/index.php");
+	header("Location: index.php");
 	die();
 }
 ?>

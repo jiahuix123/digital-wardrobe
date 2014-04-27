@@ -13,14 +13,14 @@
 			$_SESSION["AccountExist"] = "Email address has been used!"; 
 			//Email address has been used!
 			$emailCheck = true;	
-			header("Location: http://students.washington.edu/jx5/index.php");
+			header("Location: jx5/index.php");
 			die();	
 		}
 	}
 	 if (!$emailCheck) {
 		file_put_contents("user.txt", $infos, FILE_APPEND);
 		// Congrats, you signed up successfully!!
-		header("Location: http://students.washington.edu/jx5/signupSuccess.html");
+		header("Location: signupSuccess.html");
 		die();
 	}
 ?>

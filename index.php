@@ -3,8 +3,29 @@
 	if (isset($_SESSION["timeout"]) && $_SESSION["timeout"] + 5 * 60 < time()) {
 		session_destroy();
 	} else if (isset($_SESSION["email"])) {
-		header("Location: http://students.washington.edu/jx5/main.html");
+		header("Location: main.html");
 		die();
+	}
+
+	// store user's data into sql table
+	// table's name is user
+	$connection = mysqli_connect(
+		"localhost", 
+		"root", "root", 
+		"maindb", 8889) or die("Error connecting to DB: " . mysqli_error($connection));
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		$firstname = mysqli_real_escape_string(
+			$connection, $_POST['firstname']);
+		$lastname = mysqli_real_escape_string(
+			$connection, $_POST['lastname']);
+		$email = mysqli_real_escape_string(
+			$connection, $_POST['email']);
+		$password = mysqli_real_escape_string(
+			$connection, $_POST['password']);
+		// store all those data into one table call users
+		$query = "INSERT INTO user VALUES ('$firstname', '$lastname', '$email', '$password')" or
+			die("Error: " . mysqli_error($connection));
+		$result = $connection->query($query);
 	}
 ?>
 <!DOCTYPE html>
@@ -20,7 +41,7 @@
 		</header>
 		<!--<div id="whole">-->
 		<div id="signup" class="column">
-			<form action="http://students.washington.edu/jx5/signupredirect.php" method="POST">
+			<form action="" method="POST">
 				<fieldset>
 					<legend>Don't have an account yet?</legend>
 					<div class="columnname">First Name:</div>
@@ -45,7 +66,7 @@
 		<!--</div>-->
 
 		<!--<div id = "login" class="column">-->
-			<form id="loginform" action="http://students.washington.edu/jx5/loginredirect.php" method="post">
+			<form id="loginform" action="loginredirect.php" method="post">
 				
 				<fieldset>
 					<legend>Already have an account!</legend>
