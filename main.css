@@ -265,3 +265,7 @@ button ------------
 	margin-bottom: auto;
 	border: 5px solid black;
 	}
+
+	a {
+		color: white;
+	}

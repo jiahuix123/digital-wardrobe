@@ -151,14 +151,10 @@
 				  	<li>
 				  	<span class="sdt_active"></span>
 					<span class="sdt_wrap">
-					<span class="sdt_link">COLLECTION</span>
+					<span class="sdt_link">
+						<a href="collection.html">COLLECTION</a></span>
 					<span class="sdt_descr">Discover your outfits</span>
-					</span>
-						<div class="sdt_box">
-							<a href="upload.html">Upload</a>
-							<a href="collection.php">Fitting Room</a>
-							<a href="collection.html">Fashion</a>
-					  	</div>
+					 </span>
 				  	</li>
 					
 					<li>
