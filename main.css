@@ -5,14 +5,13 @@ html, body {
 	background: url('background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background: url('homepage-wallpaper.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
-#container {
-	width: 1200px;
-	padding: 0;
-	margin: 50px auto;
-	overflow:hidden;
-}
 #top {
 	margin-left:auto;
 	margin-right:auto;
@@ -20,14 +19,13 @@ html, body {
     border-radius: 35px;
 }
 #middle {
-	padding-top: 60px;
+	/* [disabled]padding-top: 60px; */
 	width: 1100px;
-	margin-left:auto;
-	margin-right:auto;
-	background-color:white;
-	overflow:hidden;
-	border: 3px solid rgba(0, 0, 0, 0);
-    border-radius: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	margin-top: 20px;
+	background-color: #FFFFFF;
 }
 .column {
 	float:left;
@@ -56,13 +54,13 @@ html, body {
 	font-weight:bold;
 }
 ul.sdt_menu{
+	background-color: rgba(0,0,0,0.5);
 	margin:0;
 	padding-bottom:100px;
 	list-style: none;
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size:14px;
 	width:auto;
-	background-color:black;
 }
 ul.sdt_menu a{
 	text-decoration:none;
@@ -100,12 +98,12 @@ ul.sdt_menu li a img{
 	box-shadow:0px 0px 4px #000;
 }
 ul.sdt_menu li span.sdt_wrap{
-	position:absolute;
-	top:25px;
-	left:0px;
-	width:180px;
-	height:60px;
-	z-index:15;
+	position: absolute;
+	top: 25px;
+	left: -3px;
+	width: 180px;
+	height: 60px;
+	z-index: 15;
 }
 ul.sdt_menu li span.sdt_active{
 	position:absolute;
@@ -133,12 +131,12 @@ ul.sdt_menu li span span.sdt_link{
 	clear:both;
 }
 ul.sdt_menu li span span.sdt_descr{
-	color:#0B75AF;
-	float:left;
-	clear:both;
-	width:155px; /*For dumbass IE7*/
-	font-size:10px;
-	letter-spacing:1px;
+	color: #FFFFFF;
+	float: left;
+	clear: both;
+	width: 155px; /*For dumbass IE7*/
+	font-size: 10px;
+	letter-spacing: 1px;
 }
 ul.sdt_menu li div.sdt_box{
 	display:block;
@@ -149,7 +147,7 @@ ul.sdt_menu li div.sdt_box{
 	top:85px;
 	left:0px;
 	display:none;
-	background:#000;
+	background: black;
 }
 ul.sdt_menu li div.sdt_box a{
 	float:left;
@@ -233,5 +231,16 @@ button ------------
 	}
 
 	#tmrmatch {
-		margin-left: 200px;
+	margin-left: 100px;
+	overflow: hidden;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-bottom: auto;
+	border-style: solid;
+	border-color:black;
+	border-width: 5px;
+	padding: 20px;
+	
+	
+	
 	}
