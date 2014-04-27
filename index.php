@@ -51,7 +51,7 @@
 					</div>
 					<div class="columnname">Password:</div>
 					<input type="password" name="password" size="25" /> </br>
-					<input type="submit" value="Sign me up!" />
+					<input type="submit" value="Log in!" />
 					<?php
 						if (isset($_SESSION["LoginFailed"])) {
 							echo "Login failed!";
