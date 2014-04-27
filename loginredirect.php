@@ -17,10 +17,10 @@ $connection = mysqli_connect(
 $query = "SELECT * FROM user WHERE email='$email'" or
 	die("Error: " . mysqli_error($connection));
 $result = $connection->query($query);
-$numrows = mysql_num_rows($result);
+$numrows = mysql_num_rows($query);
 
 if ($numrows != 0) {
-	while ($row = mysql_fetch_assoc($result)) {		
+	while ($row = mysql_fetch_assoc($query)) {		
 		if ($row['email']==$email && $row['password']==$password) {
 		} else {
 			die("incorrect username/password!");

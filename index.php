@@ -64,10 +64,7 @@
 					}
 				?>
 			</form>
-	
-
-			<form id="loginform" action="loginredirect.php" method="post">
-				
+			<form id="loginform" action="loginredirect.php" method="post">				
 				<fieldset>
 					<legend>Already have an account!</legend>
 					<div class="columnname">Email:</div>
